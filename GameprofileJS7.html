@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Game profile using JavaScript</title>
+        <style>
+            body {
+                font-family : Arial, sans-serif;
+                background: rgb(253, 250, 83);
+                text-align : center;
+                padding : 30px;
+            }
+            h1 {color : navy}
+            button { background : red;
+                color : blue;
+                padding : 10px 25px;
+                border : none;
+                border-radius: 20px;
+                cursor: pointer;
+            }
+            div {
+                border : solid 1px purple;
+                width:280 px;
+                margin : 6px auto;
+                padding : 8px 12px;
+                text-align : left;
+                border-radius: 6px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>My Game Profile</h1>
+        <button onclick="showProfile()">Show profile</button>
+        <div> Name: <span id="Name"></span></div>
+        <div> Score: <span id="Score"></span></div>
+        <div> Top Score : <span id="Record"></span></div>
+        <div> Rank: <span id="Rank"></span></div>
+        <div> Greeting: <span id="Greeting"></span></div>
+        <div> Stars: <span id="Stars"></span></div>
+        <div> Bonus level: <span id="Bonuslevel"></span></div>
+        <div> Team Name: <span id="TeamName"></span></div>
+        <script>
+            function showProfile(){
+                let Name = "Arjun" ;
+                let Score = 75 ;
+                let TopScore = 100;
+                let  BonusLevel = null; 
+                let team;
+                let IsTopScore = Score == TopScore ;
+                let Rank ;
+                if (Score >=80){
+                    Rank = "Gold";
+                }
+                else if (Score >= 50) {
+                    Rank = "Silver";
+                }
+                else {
+                    Rank = "Bronze";
+                }
+            }
+            let hour = new Date().getHours();
+            let Greeting;
+            if (hour < 12) {
+                Greeting = "Good Morning!";
+            }
+            else if (hour < 17) {
+                Greeting= "good afternoon!";
+            }
+            else {
+                Greeting= "good evening";
+            }
+            let stars = "";
+            let count = 0;
+            while (count <5 ) {
+                stars = stars + "* ";
+                count = count + 1;
+            }
+            document.getElementById("Name").innerHTML = Name;
+            document.getElementById("Score").innerHTML = Score + " out of " + highscore;
+            document.getElementById("Record").innerHTML = IsTopScore;
+            document.getElementById("Rank").innerHTML = Rank;
+            document.getElementById("Greeting").innerHTML = Greeting;
+            document.getElementById("Stars").innerHTML = Stars;
+            document.getElementById("Bonulevel").innerHTML = Bonuslevel;
+            document.getElementById("TeamName").innerHTML = TeamName;
+        </script>
+    </body>
+</html>
